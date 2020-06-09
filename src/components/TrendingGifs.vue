@@ -9,9 +9,6 @@
 </template>
 
 <script>
-const API = "https://api.giphy.com/v1/gifs";
-const key = "GCuYgkFxuVjYpSI7CdPm8pf63SKU7sfb";
-
 export default {
   data() {
     return {
@@ -20,7 +17,9 @@ export default {
   },
   created() {
     this.$http
-      .get(`${API}/trending?api_key=${key}&limit=25&rating=G`)
+      .get(
+        `${process.env.VUE_APP_API}/trending?api_key=${process.env.VUE_APP_API_KEY}&limit=25&rating=G`
+      )
       .then(res => {
         this.gifs = res.data.data;
       });
