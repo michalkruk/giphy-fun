@@ -1,5 +1,5 @@
 <template>
-  <div class="trending">
+  <div class="home">
     <div class="container">
       <div v-for="(gif, index) in gifs" :key="index" class="single-gif">
         <img :src="gif.images.downsized.url" alt="" class="gif-small" />
