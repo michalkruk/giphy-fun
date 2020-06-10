@@ -3,7 +3,7 @@
     <div class="container">
       <div v-for="(gif, index) in gifs" :key="index" class="single-gif">
         <img :src="gif.images.downsized.url" alt="" class="gif-small" />
-        <div class="copy">
+        <div @click="copyLink(gif.url)" class="copy">
           <img src="@/assets/copy-icon.svg" alt="copy-icon" class="copy-icon" />
         </div>
       </div>
@@ -26,6 +26,32 @@ export default {
       .then(res => {
         this.gifs = res.data.data;
       });
+  },
+  methods: {
+    copyLink(value) {
+      try {
+        let ghostExists =
+          document.querySelector(".app-ghost-clipboard") !== null;
+        let ghostInput = !ghostExists
+          ? document.createElement("input")
+          : document.querySelector(".app-ghost-clipboard");
+
+        if (!ghostExists) {
+          ghostInput.className = "app-ghost-clipboard";
+          ghostInput.setAttribute("type", "text");
+          document.documentElement.appendChild(ghostInput);
+        }
+
+        ghostInput.value = value;
+        ghostInput.select();
+
+        document.execCommand("copy");
+        ghostInput.blur();
+      } catch (err) {
+        console.error("No copy to clipboard support present.");
+        throw err;
+      }
+    }
   }
 };
 </script>
@@ -61,6 +87,10 @@ export default {
       background-color: #ffce47;
     }
 
+    .app-ghost-clipboard {
+      display: none;
+    }
+
     .copy {
       display: flex;
       position: absolute;
@@ -72,7 +102,7 @@ export default {
       width: 50px;
       background-color: #171c26;
       border-radius: 50px;
-      opacity: 0.1;
+      opacity: 0.2;
       transition: all 0.3s;
       cursor: pointer;
 
