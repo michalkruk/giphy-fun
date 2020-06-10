@@ -1,0 +1,30 @@
+#nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .selected {
+    position: relative;
+    color: $main-accent;
+    font-size: 100px;
+  
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 30%;
+      width: 40%;
+      height: 10px;
+      background-color: $secondary-accent;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+}
