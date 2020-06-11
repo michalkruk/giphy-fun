@@ -4,4 +4,30 @@
     flex-flow: row wrap;
     justify-content: center;
   }
+
+  input {
+    width: 300px;
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    height: 50px;
+    border: 0;
+    border-bottom: 4px solid $secondary-accent;
+    background: none;
+    transition: box-shadow 0.5s;
+    margin: 40px auto;
+
+    @media (min-width: 768px) {
+        margin-top: 2rem;
+        font-size: 25px;
+    }
+  }
+
+  input:focus {
+      outline: none;
+      box-shadow: 0 10px 20px -8px rgba($color: white, $alpha: 0.3);
+  }
 }
