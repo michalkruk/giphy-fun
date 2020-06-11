@@ -2,6 +2,11 @@
   <div class="home">
     <div class="container">
       <div v-for="(gif, index) in gifs" :key="index" class="single-gif">
+        <div class="lds-facebook loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <img :src="gif.images.downsized.url" alt="" class="gif-small" />
         <div @click="copyLink(gif.url)" class="copy">
           <img src="@/assets/copy-icon.svg" alt="copy-icon" class="copy-icon" />
@@ -47,6 +52,11 @@ export default {
 
         document.execCommand("copy");
         ghostInput.blur();
+        this.$notify({
+          group: "copied",
+          type: "success",
+          text: "Succesfully copied link to clipboard!"
+        });
       } catch (err) {
         console.error("No copy to clipboard support present.");
         throw err;

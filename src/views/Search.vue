@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     searchGifs: debounce(function() {
+      this.gifs = [];
       this.$http
         .get(
           `${process.env.VUE_APP_API}/search?api_key=${process.env.VUE_APP_API_KEY}&q=${this.searchPhrase}&limit=25&rating=G`
@@ -59,6 +60,11 @@ export default {
 
         document.execCommand("copy");
         ghostInput.blur();
+        this.$notify({
+          group: "copied",
+          type: "success",
+          text: "Succesfully copied link to clipboard!"
+        });
       } catch (err) {
         console.error("No copy to clipboard support present.");
         throw err;

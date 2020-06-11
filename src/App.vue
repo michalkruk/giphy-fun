@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <notifications
+      group="copied"
+      position="top center"
+      classes="notification"
+    />
     <div id="nav">
       <router-link to="/random">
         <h3>
@@ -7,7 +12,7 @@
         </h3>
       </router-link>
       <router-link to="/">
-        <h1 class="selected">
+        <h1 class="logo">
           DAILY GIFS
         </h1>
       </router-link>
@@ -17,7 +22,9 @@
         </h3>
       </router-link>
     </div>
-    <router-view />
+    <transition name="fade">
+      <router-view />
+    </transition>
   </div>
 </template>
 

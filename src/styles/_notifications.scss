@@ -1,0 +1,14 @@
+.notification {
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  color: $secondary-accent;
+  border: 5px solid $secondary-accent;
+  text-align: center;
+  font-weight: bold;
+
+  &.success {
+    background: $main-dark;
+  }
+}

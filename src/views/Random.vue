@@ -7,6 +7,11 @@
         alt="random gif"
         class="gif-big"
       />
+      <div class="lds-facebook loader">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div @click="copyLink(gif.url)" class="copy">
         <img src="@/assets/copy-icon.svg" alt="copy-icon" class="copy-icon" />
       </div>
@@ -47,12 +52,18 @@ export default {
 
         document.execCommand("copy");
         ghostInput.blur();
+        this.$notify({
+          group: "copied",
+          type: "success",
+          text: "Succesfully copied link to clipboard!"
+        });
       } catch (err) {
         console.error("No copy to clipboard support present.");
         throw err;
       }
     },
     rollGif() {
+      this.gif = "";
       this.$http
         .get(
           `${process.env.VUE_APP_API}/random?api_key=${process.env.VUE_APP_API_KEY}&tag=&rating=G`
