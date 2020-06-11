@@ -4,6 +4,10 @@
   align-items: center;
   max-height: 150px;
 
+  h1 {
+    margin: 0;
+  }
+
   .selected {
     position: relative;
     color: $main-accent;
