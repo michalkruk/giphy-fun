@@ -1,0 +1,48 @@
+.single-gif {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 33%;
+  max-width: 400px;
+  min-height: 400px;
+  background-color: $main-light;
+  margin: 10px;
+  border-radius: 30px;
+  transition: all 0.3s;
+
+  .gif-small {
+    max-width: 370px;
+    max-height: 370px;
+    border-radius: 25px;
+  }
+
+  &:hover {
+    background-color: $main-accent;
+  }
+
+  .copy {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    background-color: $main-dark;
+    border-radius: 50px;
+    opacity: 0.2;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    .copy-icon {
+      height: 30px;
+      width: 30px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
