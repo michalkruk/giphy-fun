@@ -1,0 +1,35 @@
+.random {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  .single-gif {
+    min-height: 600px;
+    min-width: 600px;
+    margin: 20px;
+
+
+    .gif-big {
+      max-width: 570px;
+      max-height: 570px;
+      border-radius: 25px;
+    }
+  }
+
+  .accent-btn {
+    padding: 10px 40px;
+    font-size: 60px;
+    font-weight: bold;
+    border-radius: 25px;
+    background-color: $main-accent;
+    color: $main-dark;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 5px solid $main-accent;
+
+    &:hover {
+      border-color: $secondary-accent;
+      color: $secondary-accent;
+    }
+  }
+}
