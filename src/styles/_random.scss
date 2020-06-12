@@ -39,3 +39,21 @@
     }
   }
 }
+
+@media (max-width: 700px) {
+  .random {
+    .single-gif {
+      min-width: 80vw;
+      min-height: 400px;
+
+      .gif-big {
+        max-width: 60vw;
+        max-height: 270px;
+      }
+    }
+
+    .accent-btn {
+      font-size: 5vmin;
+    }
+  }
+}

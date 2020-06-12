@@ -6,17 +6,17 @@
       classes="notification"
     />
     <div id="nav">
-      <router-link to="/random">
+      <router-link class="link random" to="/random">
         <h3>
           RANDOM
         </h3>
       </router-link>
-      <router-link to="/">
+      <router-link class="link logo" to="/">
         <h1 class="logo">
           DAILY GIFS
         </h1>
       </router-link>
-      <router-link to="/search">
+      <router-link class="link search" to="/search">
         <h3>
           SEARCH
         </h3>
